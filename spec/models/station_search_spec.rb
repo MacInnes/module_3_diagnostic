@@ -9,7 +9,17 @@ describe StationSearch do
   end
 
   it "exists" do
-    response_stations = StationSearch.new("80203")
-    expect(response_stations).to be_a(StationSearch)
+    stations_search = StationSearch.new("80203")
+    expect(stations_search).to be_a(StationSearch)
+  end
+
+  context "instance methods" do
+    it "stations method works" do
+      stations_search = StationSearch.new("80203")
+      stations = stations_search.stations
+
+      expect(stations.length).to eq(10)
+      expect(stations.first).to be_a(Station)
+    end
   end
 end
