@@ -16,7 +16,7 @@ feature 'Search' do
     # And the stations should be limited to Electric and Propane
     #TODO: test this
     # And for each of the stations I should see Name, Address, Fuel Types, Distance, and Access Times
-    within(".station").first do
+    first(".station") do
       expect(page).to have_css(".name")
       expect(page).to have_css(".address")
       expect(page).to have_css(".fuel_types")
