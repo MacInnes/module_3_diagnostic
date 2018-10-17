@@ -2,6 +2,10 @@ require 'rails_helper'
 
 feature 'Search' do
   scenario 'user searches by zip' do
+    file = File.open("./fixtures/station_search.json")
+
+    stub_request(:get, "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?location=80203&limit=10").
+      to_return(body: file, status: 200)
     # As a user
     # When I visit "/"
     visit '/'
