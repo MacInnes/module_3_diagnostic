@@ -5,7 +5,7 @@ class StationSearch
   end
 
   def stations
-    @stations ||= service.station_search[:results].map do |station_data|
+    @stations ||= service.station_search[:fuel_stations].map do |station_data|
       Station.new(station_data)
     end
   end
@@ -13,6 +13,6 @@ class StationSearch
   private
 
   def service
-    StationService.new(zip: @zip)
+    StationService.new(@zip)
   end
 end
